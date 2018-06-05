@@ -22,7 +22,7 @@
         {!! Form::submit('更新') !!}
 
     {!! Form::close() !!}
-    
+    </div>
 </div>
 
 @endsection
