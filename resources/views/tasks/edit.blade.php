@@ -15,7 +15,7 @@
          
          <div class="form-group">
         {!! Form::label('content', 'タスク:') !!}
-        {!! Form::text('content', 'id', ['class' => 'form-control']) !!}
+        {!! Form::text('content', 'content', ['class' => 'form-control']) !!}
 　　　　
         </div>
 
