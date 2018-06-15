@@ -17,11 +17,20 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = task::all();
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $tasks = $user->microposts()->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('tasks.index', [
-            'tasks' => $tasks,
-        ]);
+            $data = [
+                'user' => $user,
+                'tasks' => $tasks,
+            ];
+            $data += $this->counts($user);
+            return view('users.show', $data);
+        }else {
+            return view('welcome');
+        }
     }
 
     /**
